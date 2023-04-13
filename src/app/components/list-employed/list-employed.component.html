@@ -1,0 +1,46 @@
+<div class="row mt-3">
+    <div class="col-lg-6">
+        <h3>List Employed</h3>
+    </div>
+    <div class="col-lg-6">
+        <button class="btn btn-success float-end" routerLink="/add">New Employed</button>
+    </div>
+</div>
+
+<table *ngIf="listEmployed.length >0"  class="table table-hover mt-3">
+    <thead>
+        <tr>
+            <td>ID Employed</td>
+            <td>ID User</td>
+            <td>NIT</td>
+            <td>Name</td>
+            <td>Salary</td>
+            <td>Email</td>
+            <td>Date Create</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let Employed of listEmployed">
+            <td>
+                <a [routerLink]="['/ver',1]"> {{ Employed.ID}}</a>
+            </td>
+            <td>{{ Employed.ID_USER}}</td>
+            <td>{{ Employed.NIT_UNIQUE}}</td>
+            <td>{{ Employed.NAME}}</td>
+            <td>{{ Employed.SALARY}}</td>
+            <td>{{ Employed.EMAIL}}</td>
+            <td>{{ Employed.DATECREATE | date:'dd/MM/yyyy'}}</td>
+            <td style="width: 10%">
+                <button type="button" class="btn btn-outline-warning">Edit</button>
+            </td>
+
+            <td style="width: 10%">
+                <button type="button" class="btn btn-outline-danger">Delet</button>
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+<div *ngIf="listEmployed.length == 0" class="row mt-5">
+    <h5>NO EMPLOYED</h5>
+</div>
